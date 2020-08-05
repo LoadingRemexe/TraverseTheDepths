@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+
+
 
 public class PlayerMove : MonoBehaviour
 {
     [SerializeField] Transform playerCamera = null;
     [SerializeField] Animator animator = null;
     [SerializeField] Transform body = null;
+    [SerializeField] Slider oxygen = null;
     float limitY = 60.0f;
     public float cameraSmooth = 60.0f;
     public float speed = 4f;
     public float strafeSpeed = 1.5f;
 
-   
+    public float AirSupplyMax = 100.0f;
+    public float AirSupply = 0.0f;
 
     float lookVertical = 0.0f;
 
@@ -19,11 +24,17 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        AirSupply = AirSupplyMax;
     }
 
     void Update()
     {
 
+    }
+
+    public void RefillAirSupply()
+    {
+        AirSupply = AirSupplyMax;
     }
 
     private void FixedUpdate()
@@ -77,6 +88,9 @@ public class PlayerMove : MonoBehaviour
         {
             rb.MovePosition(rb.transform.position += (Vector3.down) * strafeSpeed * Time.deltaTime);
         }
+
+        AirSupply -= Time.deltaTime;
+        oxygen.value = AirSupply;
     }
 
 }

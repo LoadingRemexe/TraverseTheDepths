@@ -1,0 +1,15 @@
+M/D/2020 --------
+ [] 
+ [] 
+ [] 
+
+8/5/2020 --------
+ [] Add Save System
+ [X] Add Oxygen System
+ [] Add Death
+ [X] Remove Prompts
+ [] Fix Swimming/Movement
+ [] Fix NPC LookAt functions
+ [] Fix Camera
+ [X] Performance Fixes
+
